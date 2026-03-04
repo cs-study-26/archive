@@ -1,5 +1,4 @@
 # 🧑🏻‍💻 Heap  
-<hr>
 
 - [✅ 힙의 정의와 특징](#-힙의-정의와-특징)  
 - [✅ 힙의 종류](#-힙의-종류)  
@@ -7,13 +6,13 @@
 - [✅ 힙의 시간 복잡도](#-힙의-시간-복잡도)  
 - [✅ 힙의 활용 예시](#-힙의-활용-예시)  
 
+![heap.png](res/heap.png)
 > [!NOTE]  
 > 힙(Heap)은 **완전 이진 트리(Complete Binary Tree)** 형태로 데이터를 저장하며, 항상 부모 노드가 자식 노드보다 크거나(최대 힙) 작도록(최소 힙) 하는 **힙 속성(heap property)** 을 만족하는 자료구조다.
 
 <br>
 
 ## ✅ 힙의 정의와 특징  
-<hr>
 
 > [!NOTE]  
 > - 힙은 완전 이진 트리(complete binary tree) 구조를 가진다.
@@ -27,28 +26,27 @@
 
 <br>
 
-## ✅ 힙의 종류  
-<hr>
-
+## ✅ 힙의 종류
 ### 💡 최대 힙(Max Heap)  
+![max-heap.png](res/max-heap.png)
 > [!IMPORTANT]  
 > - 모든 노드에 대해, 부모 노드의 키 값이 자식 노드의 키 값보다 크거나 같은 완전 이진 트리다.
 > - 항상 **루트 노드가 전체 원소 중 최댓값**이 되며, 최댓값을 빠르게 꺼내야 하는 상황에서 사용된다.
 
 ### 💡 최소 힙(Min Heap)  
+![min-heap.png](res/min-heap.png)
 > [!IMPORTANT]  
 > - 모든 노드에 대해, 부모 노드의 키 값이 자식 노드의 키 값보다 작거나 같은 완전 이진 트리다.
 > - 항상 **루트 노드가 전체 원소 중 최솟값**이 되며, 최솟값을 빠르게 꺼내야 하는 상황에서 사용된다.
 
 ### 💡 기타 변형 힙  
+![min-max-heap.png](res/min-max-heap.png)
 > [!NOTE]  
-> - 이진 힙(Binary Heap): 가장 기본적인 힙 구현으로, 각 노드가 최대 2개의 자식을 가지는 힙이다.
-> - Min-Max Heap: 루트에서 내려가며 최소 레벨과 최대 레벨이 번갈아 나타나, 최솟값과 최댓값을 모두 효율적으로 접근할 수 있는 힙이다. ()
+> - Min-Max Heap: 루트에서 내려가며 최소 레벨과 최대 레벨이 번갈아 나타나, 최솟값과 최댓값을 모두 효율적으로 접근할 수 있는 힙이다.
 
 <br>
 
 ## ✅ 힙의 핵심 연산  
-<hr>
 
 힙은 보통 **배열 기반 이진 힙**으로 구현하며, 대표적인 연산은 다음과 같다.
 
@@ -183,7 +181,6 @@ private void buildHeap() {
 <br>
 
 ## ✅ 힙의 시간 복잡도  
-<hr>
 
 | 연산           | 시간 복잡도 | 설명 |
 |--------------|-----------|------|
@@ -197,7 +194,6 @@ private void buildHeap() {
 <br>
 
 ## ✅ 힙의 활용 예시  
-<hr>
 
 > [!TIP]  
 > - 우선순위 큐(Priority Queue): 우선순위를 기준으로 가장 높은(또는 낮은) 우선순위의 작업을 빠르게 꺼내야 할 때, 내부 구현으로 힙을 사용하는 경우가 많다. 
@@ -207,8 +203,6 @@ private void buildHeap() {
 <br>
 
 **출처**  
-- [Heap Data Structure - GeeksforGeeks](https://www.geeksforgeeks.org/dsa/heap-data-structure/)
 - [Heap (data structure) - Wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure))
-- [Binary heap - Wikipedia](https://en.wikipedia.org/wiki/Binary_heap)
 - [힙(Heap)이란? Max Heap, Min Heap](https://code-lab1.tistory.com/432)
 - [Delete Element from Heap - Programiz](https://www.programiz.com/dsa/heap-data-structure)
