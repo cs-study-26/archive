@@ -22,6 +22,15 @@
 - Index 로 인한 무작위 접근 가능
 - 메모리 크기 정적 할당
 - 중복 데이터 삽입 가능 및 값 수정 가능
+- 논리적 저장 순서 == 물리적 저장 순서
+- 공간 지역성이 좋아 Cache Hit Rate가 높다
+> Cache Hit ?
+> - CPU가 참조하고자 하는 메모리가 캐시에 존재하는 경우
+> 지역성의 원리
+> - 동일한 값 또는 해당 값에 관계된 스토리지 위치가 자주 엑세스되는 특성
+> - ① 공간 지역성(Spacial Locality) : 참조된 주소와 인접한 주소의 내용 다시 참조
+> - ② 시간 지역성(Temporal Locality) : 최근에 참조된 주소가 빠른 시간 내에 다시 참조
+> - ③ 순차 지역성(Sequential Locality) : 데이터에 순차적으로 엑세스 (공간 지역성에 편입되어 설명되기도 함)
 
 * 다른 타입의 데이터들이 모인 집합체? 'record' or 'heterogeneous array'
 
@@ -177,7 +186,7 @@ LinkedList<Integer> list = new LinkedList<>();
 <hr>
 
 #### 출처
- 
+
 - https://ghleokim.github.io/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%B0%B0%EC%97%B4%EA%B3%BC-%EB%A6%AC%EC%8A%A4%ED%8A%B8/
 - https://newstellar.tistory.com/64
 - https://github.com/walbatrossw/java-data-structures
