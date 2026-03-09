@@ -116,7 +116,21 @@ public class QueueAPITest {
   }
 }
 ```
-> 실제 구현 시에는 "ArrayDeque" 가 빠름 
+> [!NOTE]
+> 자바에서 `Queue`는 인터페이스로 직접 구현되어 있지 않고 `LinkedList`와 `ArrayDeque` 클래스를 이용함
+> LinkedList 보다는 ArrayDeque 사용을 추천함 
+>1. 메모리 오버헤드 (OverHead)
+  >  * LinkedList: 데이터 저장 시 Node 객체를 새로 생성해야 함 (노드 하나당 Data + Next 주소 + Prev 주소 모두 저장해야함)
+  >  * ArrayDeque: 내부적으로 하나의 큰 Object[] 배열을 사용 -> 추가적인 노드 객체 생성없이 데이터 저장 가능
+>  
+>2. 캐시 지역성 (Cache Locality)
+ > * LinkedList: 노드들이 비연속적으로 힙(Heap) 메모리 영역 할당됨 -> Cache Miss가 자주 발생
+ > * ArrayDeque: 배열 기반으로 데이터가 메모리에 연속적으로 붙음 -> CPU 캐시 적중률(Hit Rate)이 높아 연산 속도 빠름
+ > 
+> 3. 원형 큐(Circular Buffer) 구조
+> * Head(Front)와 Tail(Rear) 포인터(인덱스)만 이동시키며 데이터를 관리
+> * 데이터를 삭제(poll)g할 때, 실제로 지우거나 배열을 당기는(Shift) 작업 없이 Head 포인터만 한칸 이동 -> O(1)
+
 
 ### ▶️ 종류 
 
