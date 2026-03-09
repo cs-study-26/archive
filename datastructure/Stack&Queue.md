@@ -118,6 +118,7 @@ public class QueueAPITest {
 ```
 > [!NOTE]
 > 자바에서 `Queue`는 인터페이스로 직접 구현되어 있지 않고 `LinkedList`와 `ArrayDeque` 클래스를 이용함
+> 
 > LinkedList 보다는 ArrayDeque 사용을 추천함 
 >1. 메모리 오버헤드 (OverHead)
   >  * LinkedList: 데이터 저장 시 Node 객체를 새로 생성해야 함 (노드 하나당 Data + Next 주소 + Prev 주소 모두 저장해야함)
@@ -165,3 +166,4 @@ public class QueueAPITest {
 - https://yoongrammer.tistory.com/m/45?t_src=GNBlayer_kakaostory
 - https://velog.io/@mic050r/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-Tree-Graph%EC%9D%B4%EB%9E%80
 - https://nukoori.tistory.com/30
+- https://dylans-page.tistory.com/36
