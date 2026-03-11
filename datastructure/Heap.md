@@ -193,6 +193,17 @@ private void buildHeap() {
 > 힙은 “검색” 자체에 최적화된 자료구조는 아니며, **최댓값/최솟값 하나를 빠르게 꺼내는 것**에 최적화되어 있다. 정렬된 순서 전체가 필요하면 힙 정렬 또는 다른 정렬 알고리즘을 사용하는 것이 일반적이다.
 <br>
 
+> [!NOTE]
+> 힙 구성시 시간 복잡도가 O(N)인 이유  
+> Sift Down의 시간복잡도는 해당 노드부터 leaf Node 까지의 높이이다.  
+> 힙을 구성하는 완전이진트리는 그 성질에 의해 약 n/2 개의 노드는 leaf 노드에 존재하게 된다.
+
+![build_heap_time_complexity.png](res/build_heap_time_complexity.png)  
+![build_heap_time_complexity_2.png](res/build_heap_time_complexity_2.png)
+
+
+<br>
+
 ## ✅ 힙의 활용 예시  
 
 > [!TIP]  
@@ -206,3 +217,4 @@ private void buildHeap() {
 - [Heap (data structure) - Wikipedia](https://en.wikipedia.org/wiki/Heap_(data_structure))
 - [힙(Heap)이란? Max Heap, Min Heap](https://code-lab1.tistory.com/432)
 - [Delete Element from Heap - Programiz](https://www.programiz.com/dsa/heap-data-structure)
+- [build heap 시간복잡도 O(n) 이해하기](https://leeminju531.tistory.com/33)
