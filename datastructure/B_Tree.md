@@ -6,6 +6,9 @@
   - [💡 B-Tree의 key 검색 과정](#-b-tree의-key-검색-과정)
   - [💡 B-Tree의 key 삽입 과정](#-b-tree의-key-삽입-과정)
   - [💡 B-Tree의 key 삭제 과정](#-b-tree의-key-삭제-과정)
+- [✅ B+Tree](#-btree)
+  - [💡 B+Tree의 데이터 삽입](#-btree의-데이터-삽입)
+  - [💡 B+Tree의 데이터 삭제](#-btree의-데이터-삭제)
 
 ## ✅ M원 탐색 트리(M-way Search Tree)
 <hr>
@@ -218,8 +221,86 @@
 > ![b_tree_deletion_5.png](res/b_tree_deletion_5.png)  
 > ![b_tree_deletion_6.png](res/b_tree_deletion_6.png)
 
+<br>
+
+## ✅ B+Tree
+<hr>
+
+![b_plus_tree.png](b_plus_tree.png)  
+> [!TIP]
+> B+Tree는 B-Tree의 변형된 형태로 데이터의 효율적인 삽입, 검색, 삭제를 추구하는 자료구조다.  
+> B-Tree와 달리 삽입, 삭제 연산이 리프 노드에서만 이루어지며, 리프 노드끼리 연결리스트로 연결되어 있다.  
+> 리프 노드가 순차집합 연결되어있기 때문에 순차적인 탐색에 유리하다.  
+> 브랜치 노드에는 데이터가 없고 key만 존재하고, 리프 노드에만 데이터가 존재한다.
+
+<br>
+
+### 💡 B+Tree의 데이터 삽입
+> [!NOTE]
+> 단말 노드가 가득찼을 경우 ➡️ 중간 값을 부모 노드로 올리고 분할한다.  
+> 4가 삽입할 경우  
+> ![b_plus_tree_insertion.png](b_plus_tree_insertion.png)  
+> ![b_plus_tree_insertion_2.png](b_plus_tree_insertion_2.png)  
+> 4를 넣었더니 노드가 꽉 차서 [2], [3,4]로 분열한 뒤 부모 노드로 중간값 3이 올라간 모습이다.
+
+> [!NOTE]
+> 내부 노드가 가득찼을 경우  
+> 5를 삽입할 경우  
+> ![b_plus_tree_insertion_3.png](b_plus_tree_insertion_3.png)  
+> 5를 넣었더니 노드가 꽉 찼다.  
+> ![b_plus_tree_insertion_4.png](b_plus_tree_insertion_4.png)  
+> [3], [4,5] 노드로 분열한 뒤 중간값인 4를 부모 노드로 올린다.  
+> ![b_plus_tree_insertion_5.png](b_plus_tree_insertion_5.png)  
+> 부모 노드도 꽉 차서 중간값인 3을 부모로 올리고 [2], [4]로 분열한다.  
+> 이때 중요한 것이 index set은 분열할 때 [3,4]로 되지 않는 것이다.
 
 
+<br>
+
+### 💡 B+Tree의 데이터 삭제
+> [!TIP]
+> B+Tree에서 데이터 삭제는 단말 노드에서만 일어나기 때문에 내부 노드는 신경쓸 필요가 없다.
+
+> [!NOTE]
+> Case 1. 삭제한 노드가 underflow가 아닐 때 ➡️ 부모 노드만 수정해주면 된다.  
+> ![b_plus_tree_deletion.png](b_plus_tree_deletion.png)  
+> ![b_plus_tree_deletion_2.png](b_plus_tree_deletion_2.png)
+
+> [!NOTE]
+> Case 2. 삭제한 노드가 underflow일 때 ➡️ 형제 노드에게 값을 빌린 후 부모 노드를 수정한다.  
+> ![b_plus_tree_deletion_3.png](b_plus_tree_deletion_3.png)  
+> ![b_plus_tree_deletion_4.png](b_plus_tree_deletion_4.png)
+
+> [!NOTE]
+> Case 3. 형제 노드도 underflow라면?  
+> 참고로 아래의 예시는 5차 B+Tree다.  
+> ![b_plus_tree_deletion_5.png](b_plus_tree_deletion_5.png)  
+> 4 데이터를 삭제한다.  
+> ![b_plus_tree_deletion_6.png](b_plus_tree_deletion_6.png)  
+> 삭제하였지만 형제 노드도 underflow 상태라 병합을 진행한다.  
+> ![b_plus_tree_deletion_7.png](b_plus_tree_deletion_7.png)  
+> 병합 후 부모 노드 수정
+
+> [!TIP]
+> B+Tree의 동작 과정을 직접 테스트해보고 싶을 때는 [B+Tree](https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html)여기를 사용하자.
+
+<br>
+
+### ❗️ 정리
+> [!TIP]
+> B-Tree는 BST의 높이를 줄이기 위해 등장한 M원 탐색트리의 좌우 균형을 맞추기 위해 등장하였다.  
+> B+Tree는 순차 탐색이 힘든 B-Tree를 보완하기 위해 등장하였다.  
+> 직접 탐색의 경우 B-Tree와 B+Tree의 성능이 비슷하지만 순차 탐색의 경우 B+Tree의 성능이 뛰어나다.
+
+|               | B-Tree                                | B+Tree                            |
+|---------------|---------------------------------------|-----------------------------------|
+| 주요 특징         | 모든 내부, 리프 노드들이 데이터를 가진다.              | 단지 리프 노드만 데이터를 가진다.               |
+| 검색            | 모든 키가 리프에서 사용가능하지 않기 때문에, 검색이 때로 느리다. | 모든 키가 리프 노드에 있기 때문에 검색이 빠르고 정확하다. |
+| 트리에 중복 키가 없다. | 중복 키가 존재하며, 모든 데이터들은 리프에 있다.          |                                   |
+| 삭제            | 내부 노드의 삭제는 복잡하고, 트리 변형이 많다.           | 어떠한 노드든 리프에 있기 때문에 삭제가 쉽다.        |
+| 리프 노드         | 링크드리스트로 저장되지 않는다.                     | 링크드리스트로 저장된다.                     |
+| 높이            | 특정 개수의 노드는 높이가 높다.                    | 같은 노드일 때 B-Tree보다 높이가 낮다.         |
+| 사용            | 파일 시스템 <br>  특정 key를 내부 노드에서 바로 찾을 수 있음                         | 대부분의 RDBMS 인덱스       <br> 리프 연결리스트 덕분에 BETWEEN, ORDER BY가 빠름        |
 
 
 
