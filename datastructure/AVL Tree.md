@@ -115,9 +115,9 @@ private Node insertNode(Node node, Integer data) {
         }
 
         if (data < node.data) {
-            node.left = insert(node.left, data);
+            node.left = insertNode(node.left, data);
         } else if (data > node.data) {
-            node.right = insert(node.right, data);
+            node.right = insertNode(node.right, data);
         } else {
         	// 변경되는 코드가 없으니 Early Return을 시킨다.
             return node;
@@ -175,9 +175,9 @@ private Node deleteNode(Node node, Integer data) {
         }
         // 삭제할 값을 찾는 중
         if (data < node.data) {
-            node.left = delete(node.left, data);
+            node.left = deleteNode(node.left, data);
         } else if (data > node.data) {
-            node.right = delete(node.right, data);
+            node.right = deleteNode(node.right, data);
         }
         else {
             // 삭제할 값 발견 -> 대체할 노드를 찾아야 한다.
@@ -188,7 +188,7 @@ private Node deleteNode(Node node, Integer data) {
                 if (node.left != null) { // 좌측 subtree에서 가장 큰 값을 찾는다(left에 자식이 있음)
                     Node target = findMaxNode(node.left);
                     node.data = target.data;
-                    node.left = delete(node.left, target.data);
+                    node.left = deleteNode(node.left, target.data);
                 } else { // 자식이 1개(right에만) -> 자식을 자신의 위치로 올리면 된다
                     node = node.right;
                 }
@@ -204,26 +204,22 @@ private Node deleteNode(Node node, Integer data) {
         node.height = Math.max(height(node.left),height(node.right)) + 1;
         int balance = getBalance(node);
 
-        // left-left
-        if (balance > 1 && data < node.left.data) {
-            return rightRotate(node);
+        if (balance > 1 && getBalance(node.left) >= 0)
+          return rightRotate(node);     // LL
+        
+        if (balance > 1 && getBalance(node.left) < 0)
+        {
+          node.left = leftRotate(node.left);
+          return rightRotate(node);     // LR
         }
-
-        // right-right
-        if (balance < -1 && data > node.right.data) {
-            return leftRotate(node);
-        }
-
-        // left-right
-        if (balance > 1 && node.left.data < data) {
-            node.left = leftRotate(node.left); // 왼쪽 자식노드에 대해 먼저 좌회전을 한다
-            return rightRotate(node);
-        }
-
-        // right-left
-        if (balance < -1 && data < node.right.data) {
-            node.right = rightRotate(node.right);
-            return leftRotate(node);
+        
+        if (balance < -1 && getBalance(node.right) <= 0)
+          return leftRotate(node);      // RR
+        
+        if (balance < -1 && getBalance(node.right) > 0)
+        {
+          node.right = rightRotate(node.right);
+          return leftRotate(node);      // RL
         }
 
         // 변경사항이 없을 경우
