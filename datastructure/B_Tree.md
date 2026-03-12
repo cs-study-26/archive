@@ -18,7 +18,8 @@
 > 이진 탐색 트리는 차수가 2이기 때문에 높이가 커지게 되는 문제점이 있다.  
 > ➡ M원 검색 트리는 차수를 2에서 M개로 늘려 문제점을 해결하였다.
 
-![m_way_search_tree.png](res/m_way_search_tree.png)
+![m_way_search_tree.png](res/m_way_search_tree.png)  
+
 위 그림은 M=3인 3원 탐색 트리라고 볼 수 있다.
 
 <br>
@@ -85,26 +86,31 @@
 > 5. 리프가 아닌 모든 노드들은 최소 2개 이상의 자식을 가져야 한다.
 
 ![b_tree_condition_1.png](res/b_tree_condition_1.png)
+
 1. 모든 노드들은 최대 m개의 자식을 가질 수 있다.
 
 <br>
 
 ![b_tree_condition_2.png](res/b_tree_condition_2.png)
+
 2. k개의 자식을 가진 리프가 아닌 노드는 k-1개의 키를 가지고 있다.
 
 <br>
 
 ![b_tree_condition_3.png](res/b_tree_condition_3.png)
+
 3. 모든 내부 노드는 최소한 [m/2]개의 자식을 가져야 한다.
 
 <br>
 
 ![b_tree_condition_4.png](res/b_tree_condition_4.png)
+
 4. 모든 리프 노드들은 같은 레벨에 있어야 한다.
 
 <br>
 
 ![b_tree_condition_5.png](res/b_tree_condition_5.png)
+
 5. 리프가 아닌 모든 노드들은 최소 2개 이상의 자식을 가져야 한다.
 
 
@@ -223,6 +229,10 @@
 
 <br>
 
+> [!TIP]
+> B-Tree의 동작을 직접 실험해보고 싶다면 [B-Tree](https://www.cs.usfca.edu/~galles/visualization/BTree.html) 여기를 사용하자.
+
+
 ## ✅ B+Tree
 <hr>
 
@@ -282,7 +292,7 @@
 > 병합 후 부모 노드 수정
 
 > [!TIP]
-> B+Tree의 동작 과정을 직접 테스트해보고 싶을 때는 [B+Tree](https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html)여기를 사용하자.
+> B+Tree의 동작 과정을 직접 테스트해보고 싶을 때는 [B+Tree](https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html) 여기를 사용하자.
 
 <br>
 
