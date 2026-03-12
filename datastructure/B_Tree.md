@@ -226,7 +226,7 @@
 ## ✅ B+Tree
 <hr>
 
-![b_plus_tree.png](b_plus_tree.png)  
+![b_plus_tree.png](res/b_plus_tree.png)  
 > [!TIP]
 > B+Tree는 B-Tree의 변형된 형태로 데이터의 효율적인 삽입, 검색, 삭제를 추구하는 자료구조다.  
 > B-Tree와 달리 삽입, 삭제 연산이 리프 노드에서만 이루어지며, 리프 노드끼리 연결리스트로 연결되어 있다.  
@@ -239,18 +239,18 @@
 > [!NOTE]
 > 단말 노드가 가득찼을 경우 ➡️ 중간 값을 부모 노드로 올리고 분할한다.  
 > 4가 삽입할 경우  
-> ![b_plus_tree_insertion.png](b_plus_tree_insertion.png)  
-> ![b_plus_tree_insertion_2.png](b_plus_tree_insertion_2.png)  
+> ![b_plus_tree_insertion.png](res/b_plus_tree_insertion.png)  
+> ![b_plus_tree_insertion_2.png](res/b_plus_tree_insertion_2.png)  
 > 4를 넣었더니 노드가 꽉 차서 [2], [3,4]로 분열한 뒤 부모 노드로 중간값 3이 올라간 모습이다.
 
 > [!NOTE]
 > 내부 노드가 가득찼을 경우  
 > 5를 삽입할 경우  
-> ![b_plus_tree_insertion_3.png](b_plus_tree_insertion_3.png)  
+> ![b_plus_tree_insertion_3.png](res/b_plus_tree_insertion_3.png)  
 > 5를 넣었더니 노드가 꽉 찼다.  
-> ![b_plus_tree_insertion_4.png](b_plus_tree_insertion_4.png)  
+> ![b_plus_tree_insertion_4.png](res/b_plus_tree_insertion_4.png)  
 > [3], [4,5] 노드로 분열한 뒤 중간값인 4를 부모 노드로 올린다.  
-> ![b_plus_tree_insertion_5.png](b_plus_tree_insertion_5.png)  
+> ![b_plus_tree_insertion_5.png](res/b_plus_tree_insertion_5.png)  
 > 부모 노드도 꽉 차서 중간값인 3을 부모로 올리고 [2], [4]로 분열한다.  
 > 이때 중요한 것이 index set은 분열할 때 [3,4]로 되지 않는 것이다.
 
@@ -263,22 +263,22 @@
 
 > [!NOTE]
 > Case 1. 삭제한 노드가 underflow가 아닐 때 ➡️ 부모 노드만 수정해주면 된다.  
-> ![b_plus_tree_deletion.png](b_plus_tree_deletion.png)  
-> ![b_plus_tree_deletion_2.png](b_plus_tree_deletion_2.png)
+> ![b_plus_tree_deletion.png](res/b_plus_tree_deletion.png)  
+> ![b_plus_tree_deletion_2.png](res/b_plus_tree_deletion_2.png)
 
 > [!NOTE]
 > Case 2. 삭제한 노드가 underflow일 때 ➡️ 형제 노드에게 값을 빌린 후 부모 노드를 수정한다.  
-> ![b_plus_tree_deletion_3.png](b_plus_tree_deletion_3.png)  
-> ![b_plus_tree_deletion_4.png](b_plus_tree_deletion_4.png)
+> ![b_plus_tree_deletion_3.png](res/b_plus_tree_deletion_3.png)  
+> ![b_plus_tree_deletion_4.png](res/b_plus_tree_deletion_4.png)
 
 > [!NOTE]
 > Case 3. 형제 노드도 underflow라면?  
 > 참고로 아래의 예시는 5차 B+Tree다.  
-> ![b_plus_tree_deletion_5.png](b_plus_tree_deletion_5.png)  
+> ![b_plus_tree_deletion_5.png](res/b_plus_tree_deletion_5.png)  
 > 4 데이터를 삭제한다.  
-> ![b_plus_tree_deletion_6.png](b_plus_tree_deletion_6.png)  
+> ![b_plus_tree_deletion_6.png](res/b_plus_tree_deletion_6.png)  
 > 삭제하였지만 형제 노드도 underflow 상태라 병합을 진행한다.  
-> ![b_plus_tree_deletion_7.png](b_plus_tree_deletion_7.png)  
+> ![b_plus_tree_deletion_7.png](res/b_plus_tree_deletion_7.png)  
 > 병합 후 부모 노드 수정
 
 > [!TIP]
