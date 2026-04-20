@@ -107,7 +107,7 @@
 > ## MVCC (Multi-Version Concurrency Control, 다중 버전 동시성 제어)
 > * 일반적인 RDBMS -> 변경 전의 레코드를 UNDO 공간에 백업
 > * 동일한 레코드에 대해 여러 버전의 데이터 존재
-> * 트랜잭션 롤백 시 데ㅣ터 복원
+> * 트랜잭션 롤백 시 데이터 복원
 > * 서로 다른 트랜잭션 간의 접근 세밀하게 제어
 > * 백업 레코드 -> 어떤 트랜잭션에 의해 백업된건지 번호 함께 저장
 > * 데이터 불필요 판단 => 주기적으로 백그라운드 쓰레드를 통해 삭제
@@ -117,7 +117,7 @@
 
 > [!NOTE]
 > ## 유령 읽기(Phantom Read)
-> * SELECT 로 조회하 경우 트랜잭션이 끝나지 전에 다른 트랜잭션에 의해 추가된 레코드 발견
+> * SELECT 로 조회하는 경우 트랜잭션이 끝나기 전에 다른 트랜잭션에 의해 추가된 레코드 발견
 > * MVCC 로 일반적인 조회에서는 발생 X
 > * 잠금이 사용되는 경우 발생 O
 > * MYSQL -> RDBMS와 다르게 특수한 갭락 존재
@@ -135,7 +135,7 @@
 - 실제 테이블에서 값을 가져오지 X -> Undo 영역에 백업된 레코드에서 값을 가져옴
 - Phantom Read, Non-Repeatable Read(반복 읽기 불가능) 문제 발생
 
-![READ_COMMITED.png](READ_COMMITED.png)
+![READ_COMMITED.png](res/READ_COMMITED.png)
 
 > [!NOTE]
 > ## 반복 읽기 불가능 (Non-Repeatable Read)
