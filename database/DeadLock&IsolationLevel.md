@@ -158,5 +158,12 @@
 > * 데이터가 조회되었다가 사라지는 현상 초래 
 > * ![dirty_read.png](res/dirty_read.png)
 
+<hr>
 
+#### 출처
+- https://velog.io/@flasharrow/트랜잭션의-이해와-Lock-해결-방법
+- https://mangkyu.tistory.com/298
+- https://blog.naver.com/ndb796/221243161017
+- https://cladren123.tistory.com/264
+- https://cochun-diary.tistory.com/100
 
