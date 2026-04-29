@@ -28,7 +28,7 @@
 >   - ANSI SQL(미국 국립표준협회 SQL)에서 SQL(Structured Query Language)을 표준화한 표준 규격이다.
 > - (+) 기호
 >   - Oracle DB에서 사용되는 구식 조인 문법이다.
->   - LEFT JOIN일 경우 왼쪽에 (+) 기호를, RIGHT JOIN일 경우 오른쪽에 (+) 기호가 붙는다.
+>   - LEFT JOIN일 경우 오른쪽에 (+) 기호를, RIGHT JOIN일 경우 왼쪽에 (+) 기호가 붙는다.
 
 <br>
 
